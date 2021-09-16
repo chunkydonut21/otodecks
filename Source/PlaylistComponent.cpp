@@ -287,27 +287,23 @@ std::vector<std::string> PlaylistComponent::tokenise(std::string input, char sep
 
 // listens on text change in the searchbox and filter tracks from tracklist on the basis of the search query entered
 void PlaylistComponent::textEditorTextChanged(TextEditor& editor) {
-    if (editor.getText() == "") {
-        // if the search text is empty string lthen reset the tracklist
-        loadFromCSV();
-    } else {
-        // get the string entered in the search bar
-        std::string query = editor.getText().toStdString();
+    // if the search text is empty string lthen reset the tracklist
+    loadFromCSV();
+    
+    // get the string entered in the search bar
+    std::string query = editor.getText().toStdString();
         
-        std::vector<Track> tracks;
-        
-        // find the name entered in the search query in the tracklist vector
-        for (Track const& track : trackList) {
-            if (track.trackName.substr(0, query.size()) == query) {
-                tracks.push_back(track);
-            }
+    std::vector<Track> tracks;
+    
+    // find the name entered in the search query in the tracklist vector
+    for (Track const& track : trackList) {
+        if (track.trackName.substr(0, query.size()) == query) {
+            tracks.push_back(track);
         }
-        
-        // update the tracklist vector
-        trackList = tracks;
-        
     }
     
+    // update the tracklist vector
+    trackList = tracks;
     
     // Update the list when the vector is updated
     updateTableComponent();
@@ -389,6 +385,7 @@ void PlaylistComponent::loopTrack(bool pos) {
 
 
 void PlaylistComponent::playNextTrack(bool pos) {
+    std::cout << "currentIndex" << currentIndex << std::endl;
     
     if(trackList.size() < 1) {
         std::cout << "PlaylistComponent::playNextTrack No track found" << std::endl;
@@ -401,7 +398,6 @@ void PlaylistComponent::playNextTrack(bool pos) {
         } else {
             deckGUI2->loadTrack(juce::URL{juce::File(trackList[currentIndex].path)});
         }
-        currentIndex++;
     } else {
         std::cout << "PlaylistComponent::playNextTrack reached the end of the tracklist " << std::endl;
         currentIndex = 0;
@@ -411,17 +407,17 @@ void PlaylistComponent::playNextTrack(bool pos) {
             deckGUI2->loadTrack(juce::URL{juce::File(trackList[currentIndex].path)});
         }
     }
+    
+    currentIndex++;
 }
 
 void PlaylistComponent::playPreviousTrack(bool pos) {
-    
     if(trackList.size() < 1) {
         std::cout << "PlaylistComponent::playPreviousTrack No track found" << std::endl;
         return;
     }
     
     if(currentIndex <= trackList.size() && currentIndex > 0) {
-        currentIndex--;
         if(pos) {
             deckGUI1->loadTrack(juce::URL{juce::File(trackList[currentIndex].path)});
         } else {
@@ -436,4 +432,6 @@ void PlaylistComponent::playPreviousTrack(bool pos) {
             deckGUI2->loadTrack(juce::URL{juce::File(trackList[currentIndex].path)});
         }
     }
+    
+    currentIndex--;
 }
