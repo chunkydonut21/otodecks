@@ -57,7 +57,7 @@ void PlaylistComponent::paint (juce::Graphics& g)
 
     g.setColour (juce::Colours::white); // set text colour
     g.setFont (14.0f); // set font size
-    g.drawText ("PlaylistComponent", getLocalBounds(), juce::Justification::centred, true);   // draw some placeholder text
+//    g.drawText ("PlaylistComponent", getLocalBounds(), juce::Justification::centred, true);   // draw some placeholder text
     
     // set placeholder colour for search bar
     searchBar.setTextToShowWhenEmpty("Search your favourite track...", juce::Colours::darkgrey);
@@ -78,9 +78,9 @@ void PlaylistComponent::resized()
 
 
     // setting bounds for table component, add button and search bar
-    tableComponent.setBounds(0, rowH, getWidth(), getHeight());
-    addButton.setBounds(4 * getWidth() / 5, 0, getWidth() / 5 , rowH);
     searchBar.setBounds(0, 0, 4 * getWidth()/5, rowH);
+    addButton.setBounds(4 * getWidth() / 5, 0, getWidth() / 5 , rowH);
+    tableComponent.setBounds(0, rowH, getWidth(), 6 * rowH);
     
 }
 

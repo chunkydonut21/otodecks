@@ -13,12 +13,13 @@
 #include <JuceHeader.h>
 #include "DJAudioPlayer.h"
 #include "WaveformDisplay.h"
+#include "SliderLookAndFeel.h"
 
 //==============================================================================
 /*
 */
 class DeckGUI  : public juce::Component, public juce::Button::Listener, public juce::Slider::Listener,
-    public juce::FileDragAndDropTarget, public juce::Timer
+public juce::FileDragAndDropTarget, public juce::Timer
 {
 public:
     DeckGUI(DJAudioPlayer* player, juce::AudioFormatManager& formatManagerToUse, juce::AudioThumbnailCache& cacheToUse);
@@ -70,7 +71,11 @@ private:
     DJAudioPlayer* player;
     WaveformDisplay waveformDisplay;
     
+    SliderLookAndFeel sliderLookAndFeel;
+    
     bool loop;
+    
+    juce::ImageButton mImageComponent;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DeckGUI)
 };

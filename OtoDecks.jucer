@@ -4,6 +4,10 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="LL7sEm" name="OtoDecks">
     <GROUP id="{934E9457-A322-4E46-DA8A-35258BEAB3D7}" name="Source">
+      <FILE id="CHL9zv" name="SliderLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/SliderLookAndFeel.cpp"/>
+      <FILE id="fyQjg1" name="SliderLookAndFeel.h" compile="0" resource="0"
+            file="Source/SliderLookAndFeel.h"/>
       <FILE id="YuUp36" name="ControlDeck.cpp" compile="1" resource="0" file="Source/ControlDeck.cpp"/>
       <FILE id="sa8DXL" name="ControlDeck.h" compile="0" resource="0" file="Source/ControlDeck.h"/>
       <FILE id="llct7Y" name="Track.cpp" compile="1" resource="0" file="Source/Track.cpp"/>
@@ -25,6 +29,10 @@
       <FILE id="Elsx4b" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="tlWwP2" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
+    </GROUP>
+    <GROUP id="{D3641399-E7BF-8051-2F83-6131249A0C82}" name="assets">
+      <FILE id="woOT7y" name="stop.png" compile="0" resource="1" file="assets/stop.png"/>
+      <FILE id="e72yYt" name="repeat.png" compile="0" resource="1" file="assets/repeat.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>

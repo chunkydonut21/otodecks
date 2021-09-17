@@ -69,9 +69,9 @@ void ControlDeck::resized()
     
     double rowH = getHeight() / 2;
         
-    nextButton.setBounds(10, rowH, -10 + getWidth() / 3, rowH);
-    previousButton.setBounds(10 + getWidth() / 3, rowH, -10 + getWidth() / 3, rowH);
-    loopButton.setBounds(10 + 2 * getWidth() / 3, rowH, -20 + getWidth() / 3, rowH);
+    nextButton.setBounds(10, 15, -10 + getWidth() / 3, rowH);
+    previousButton.setBounds(10 + getWidth() / 3, 15, -10 + getWidth() / 3, rowH);
+    loopButton.setBounds(10 + 2 * getWidth() / 3, 15, -20 + getWidth() / 3, rowH);
 
 }
 

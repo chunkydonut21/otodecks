@@ -38,11 +38,19 @@ DeckGUI::DeckGUI(DJAudioPlayer* _player,
     playButton.addListener(this);
     stopButton.addListener(this);
     loadButton.addListener(this);
-
+    
+    Image repeatImage = juce::ImageCache::getFromMemory(BinaryData::stop_png, BinaryData::stop_pngSize);
+    mImageComponent.setImages(true, true, true,
+               repeatImage, 0, Colour(255,255,255),
+               repeatImage, 0, Colour(255,0,0),
+               repeatImage, 0, Colour(100,0,0));
+    
+    mImageComponent.addListener(this);
     
     posSlider.addListener(this);
     speedSlider.addListener(this);
     volSlider.addListener(this);
+    addAndMakeVisible(mImageComponent);
 
     volSlider.setRange(0.0, 1.0);
     speedSlider.setRange(0.1, 100.0);
@@ -83,6 +91,14 @@ void DeckGUI::paint (juce::Graphics& g)
     speedSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
     posSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
     
+    // look and feel of the sliders
+    getLookAndFeel().setColour(Slider::thumbColourId, Colours::orange);
+    getLookAndFeel().setColour(Slider::rotarySliderFillColourId, Colours::skyblue);
+    getLookAndFeel().setColour(Slider::trackColourId, Colours::skyblue);
+    
+//    volSlider.setLookAndFeel(&sliderLookAndFeel);
+//    speedSlider.setLookAndFeel(&sliderLookAndFeel);
+    posSlider.setLookAndFeel(&sliderLookAndFeel);
     
     // styling the labels
     volLabel.setFont(juce::Font(16.0f, juce::Font::bold));
@@ -131,18 +147,17 @@ void DeckGUI::resized()
     
     waveformDisplay.setBounds(0, rowH * 4, getWidth(), rowH * 2);
     
-    playButton.setBounds(10, rowH * 6, -10 + getWidth() / 3, rowH);
-    stopButton.setBounds(10 + getWidth() / 3, rowH * 6, -10 + getWidth() / 3, rowH);
-    loadButton.setBounds(10 + 2 * getWidth() / 3, rowH * 6, -20 + getWidth() / 3, rowH);
+    mImageComponent.setBounds(10, rowH * 6 + 10, -10 + getWidth() / 3, 0.7 * rowH);
+    stopButton.setBounds(10 + getWidth() / 3, rowH * 6 + 10, -10 + getWidth() / 3, 0.7 * rowH);
+    loadButton.setBounds(10 + 2 * getWidth() / 3, rowH * 6 + 10, -20 + getWidth() / 3, 0.7 * rowH);
 
 }
-
 
 // called when button is clicked
 void DeckGUI::buttonClicked(juce::Button* button) {
    
     // handling button clicks for start, stop and load button
-    if(button == &playButton) {
+    if(button == &mImageComponent) {
         std::cout << "Play button is clicked!" << std::endl;
         player->start();
 
