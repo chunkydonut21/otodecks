@@ -4763,7 +4763,19 @@
     <None Include="..\..\assets\stop.png">
       <Filter>OtoDecks\assets</Filter>
     </None>
-    <None Include="..\..\assets\repeat.png">
+    <None Include="..\..\assets\loading.png">
+      <Filter>OtoDecks\assets</Filter>
+    </None>
+    <None Include="..\..\assets\play.png">
+      <Filter>OtoDecks\assets</Filter>
+    </None>
+    <None Include="..\..\assets\loop.png">
+      <Filter>OtoDecks\assets</Filter>
+    </None>
+    <None Include="..\..\assets\next.png">
+      <Filter>OtoDecks\assets</Filter>
+    </None>
+    <None Include="..\..\assets\previous.png">
       <Filter>OtoDecks\assets</Filter>
     </None>
     <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

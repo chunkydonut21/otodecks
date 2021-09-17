@@ -31,9 +31,9 @@ public:
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ControlDeck)
     
-    juce::TextButton nextButton{"NEXT"};
-    juce::TextButton previousButton{"PREVIOUS"};
-    juce::TextButton loopButton{"LOOP"};
+    juce::ImageButton nextButton{"NEXT"};
+    juce::ImageButton previousButton{"PREVIOUS"};
+    juce::ImageButton loopButton{"LOOP"};
     
     
     DJAudioPlayer* player;

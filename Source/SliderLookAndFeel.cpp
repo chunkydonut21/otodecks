@@ -62,12 +62,10 @@ float rotaryStartAngle, float rotaryEndAngle, juce::Slider &slider) {
     double rw = radius * 2.0f;
     double angle = rotaryStartAngle + sliderPosProportional * (rotaryEndAngle - rotaryStartAngle);
 
-    // Background
+    // setting the background colour
     g.setColour(juce::Colours::skyblue);
     g.fillEllipse(rx, ry, rw, rw);
 
-    // g.setColour(::ColourScheme::black);
-    // g.drawEllipse(rx, ry, rw, rw, 10.0f);
 
     juce::Path p;
     double pointerLength = radius;
@@ -75,15 +73,15 @@ float rotaryStartAngle, float rotaryEndAngle, juce::Slider &slider) {
     p.addRectangle(-pointerThickness * 0.5f, -radius, pointerThickness, pointerLength);
     p.applyTransform(juce::AffineTransform::rotation (angle).translated (centreX,centreY));
     
-    // pointer
+    // setting colour for the slider pointer
     g.setColour(juce::Colours::darkgrey);
+
     g.fillPath(p);
 
-
+    // setting colour for the ellipse
     g.setColour(juce::Colours::darkgrey);
 
-    double smallw = rw*0.45;
+    double smallw = rw * 0.45;
     g.fillEllipse(centreX -(smallw /2), centreY - (smallw/2), smallw, smallw);
-    // look and feel of the sliders
 
 }

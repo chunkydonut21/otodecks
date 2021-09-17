@@ -35,22 +35,34 @@ DeckGUI::DeckGUI(DJAudioPlayer* _player,
     
     addAndMakeVisible(waveformDisplay);
     
+    // setting image for image buttons
+    Image playImage = juce::ImageCache::getFromMemory(BinaryData::play_png, BinaryData::play_pngSize);
+    playButton.setImages(true, true, true,
+               playImage, 0, Colours::white,
+               playImage, 0, Colours::orange,
+               playImage, 0, Colours::darkorange);
+    
+    
+    Image stopImage = juce::ImageCache::getFromMemory(BinaryData::stop_png, BinaryData::stop_pngSize);
+    stopButton.setImages(true, true, true,
+               stopImage, 0, Colours::white,
+               stopImage, 0, Colours::orange,
+               stopImage, 0, Colours::darkorange);
+    
+    
+    Image loadImage = juce::ImageCache::getFromMemory(BinaryData::loading_png, BinaryData::loading_pngSize);
+    loadButton.setImages(true, true, true,
+               loadImage, 0, Colours::white,
+               loadImage, 0, Colours::orange,
+               loadImage, 0, Colours::darkorange);
+    
     playButton.addListener(this);
     stopButton.addListener(this);
     loadButton.addListener(this);
     
-    Image repeatImage = juce::ImageCache::getFromMemory(BinaryData::stop_png, BinaryData::stop_pngSize);
-    mImageComponent.setImages(true, true, true,
-               repeatImage, 0, Colour(255,255,255),
-               repeatImage, 0, Colour(255,0,0),
-               repeatImage, 0, Colour(100,0,0));
-    
-    mImageComponent.addListener(this);
-    
     posSlider.addListener(this);
     speedSlider.addListener(this);
     volSlider.addListener(this);
-    addAndMakeVisible(mImageComponent);
 
     volSlider.setRange(0.0, 1.0);
     speedSlider.setRange(0.1, 100.0);
@@ -96,8 +108,6 @@ void DeckGUI::paint (juce::Graphics& g)
     getLookAndFeel().setColour(Slider::rotarySliderFillColourId, Colours::skyblue);
     getLookAndFeel().setColour(Slider::trackColourId, Colours::skyblue);
     
-//    volSlider.setLookAndFeel(&sliderLookAndFeel);
-//    speedSlider.setLookAndFeel(&sliderLookAndFeel);
     posSlider.setLookAndFeel(&sliderLookAndFeel);
     
     // styling the labels
@@ -147,7 +157,7 @@ void DeckGUI::resized()
     
     waveformDisplay.setBounds(0, rowH * 4, getWidth(), rowH * 2);
     
-    mImageComponent.setBounds(10, rowH * 6 + 10, -10 + getWidth() / 3, 0.7 * rowH);
+    playButton.setBounds(10, rowH * 6 + 10, -10 + getWidth() / 3, 0.7 * rowH);
     stopButton.setBounds(10 + getWidth() / 3, rowH * 6 + 10, -10 + getWidth() / 3, 0.7 * rowH);
     loadButton.setBounds(10 + 2 * getWidth() / 3, rowH * 6 + 10, -20 + getWidth() / 3, 0.7 * rowH);
 
@@ -157,7 +167,7 @@ void DeckGUI::resized()
 void DeckGUI::buttonClicked(juce::Button* button) {
    
     // handling button clicks for start, stop and load button
-    if(button == &mImageComponent) {
+    if(button == &playButton) {
         std::cout << "Play button is clicked!" << std::endl;
         player->start();
 

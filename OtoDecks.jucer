@@ -32,7 +32,11 @@
     </GROUP>
     <GROUP id="{D3641399-E7BF-8051-2F83-6131249A0C82}" name="assets">
       <FILE id="woOT7y" name="stop.png" compile="0" resource="1" file="assets/stop.png"/>
-      <FILE id="e72yYt" name="repeat.png" compile="0" resource="1" file="assets/repeat.png"/>
+      <FILE id="Uej74Z" name="loading.png" compile="0" resource="1" file="assets/loading.png"/>
+      <FILE id="d8Av1A" name="play.png" compile="0" resource="1" file="assets/play.png"/>
+      <FILE id="PeGVFC" name="loop.png" compile="0" resource="1" file="assets/loop.png"/>
+      <FILE id="naLVhb" name="next.png" compile="0" resource="1" file="assets/next.png"/>
+      <FILE id="e95Ucx" name="previous.png" compile="0" resource="1" file="assets/previous.png"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>

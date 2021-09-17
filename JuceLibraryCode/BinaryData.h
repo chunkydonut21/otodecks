@@ -9,13 +9,25 @@
 namespace BinaryData
 {
     extern const char*   stop_png;
-    const int            stop_pngSize = 1044;
+    const int            stop_pngSize = 416;
 
-    extern const char*   repeat_png;
-    const int            repeat_pngSize = 943;
+    extern const char*   loading_png;
+    const int            loading_pngSize = 878;
+
+    extern const char*   play_png;
+    const int            play_pngSize = 774;
+
+    extern const char*   loop_png;
+    const int            loop_pngSize = 1084;
+
+    extern const char*   next_png;
+    const int            next_pngSize = 1078;
+
+    extern const char*   previous_png;
+    const int            previous_pngSize = 1044;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 2;
+    const int namedResourceListSize = 6;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

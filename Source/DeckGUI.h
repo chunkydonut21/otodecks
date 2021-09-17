@@ -53,9 +53,9 @@ public:
 private:
     
     /** text button for play, stop and load */
-    juce::TextButton playButton{"PLAY"};
-    juce::TextButton stopButton{"STOP"};
-    juce::TextButton loadButton{"LOAD"};
+    juce::ImageButton playButton{"PLAY"};
+    juce::ImageButton stopButton{"STOP"};
+    juce::ImageButton loadButton{"LOAD"};
 
     
     /** slider for volume, speed and position */
@@ -74,8 +74,6 @@ private:
     SliderLookAndFeel sliderLookAndFeel;
     
     bool loop;
-    
-    juce::ImageButton mImageComponent;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DeckGUI)
 };

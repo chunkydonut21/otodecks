@@ -2811,7 +2811,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\assets\stop.png"/>
-    <None Include="..\..\assets\repeat.png"/>
+    <None Include="..\..\assets\loading.png"/>
+    <None Include="..\..\assets\play.png"/>
+    <None Include="..\..\assets\loop.png"/>
+    <None Include="..\..\assets\next.png"/>
+    <None Include="..\..\assets\previous.png"/>
     <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\readme.md"/>
     <None Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

@@ -22,6 +22,27 @@ playlistComp(playlistComponent), pos(_pos)
     addAndMakeVisible(previousButton);
     addAndMakeVisible(loopButton);
     
+    // setting image for image buttons
+    Image nextImage = juce::ImageCache::getFromMemory(BinaryData::next_png, BinaryData::next_pngSize);
+    nextButton.setImages(true, true, true,
+               nextImage, 0, Colours::white,
+               nextImage, 0, Colours::orange,
+               nextImage, 0, Colours::darkorange);
+    
+    
+    Image previousImage = juce::ImageCache::getFromMemory(BinaryData::previous_png, BinaryData::previous_pngSize);
+    previousButton.setImages(true, true, true,
+               previousImage, 0, Colours::white,
+               previousImage, 0, Colours::orange,
+               previousImage, 0, Colours::darkorange);
+    
+    
+    Image loopImage = juce::ImageCache::getFromMemory(BinaryData::loop_png, BinaryData::loop_pngSize);
+    loopButton.setImages(true, true, true,
+               loopImage, 0, Colours::white,
+               loopImage, 0, Colours::orange,
+               loopImage, 0, Colours::darkorange);
+    
     nextButton.addListener(this);
     previousButton.addListener(this);
     loopButton.addListener(this);
@@ -67,7 +88,7 @@ void ControlDeck::resized()
     // This method is where you should set the bounds of any child
     // components that your component contains..
     
-    double rowH = getHeight() / 2;
+    double rowH = 0.4 * getHeight();
         
     nextButton.setBounds(10, 15, -10 + getWidth() / 3, rowH);
     previousButton.setBounds(10 + getWidth() / 3, 15, -10 + getWidth() / 3, rowH);
